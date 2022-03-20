@@ -290,7 +290,7 @@ def group_stage(player1 : Player, player2 : Player, player3 : Player, player4 : 
 
     if group_temp_list[0].simul_round3_game_points != group_temp_list[1].simul_round3_game_points:
 
-        group_temp_list
+        group_temp_list[0].simul_round3_gp_points += 7
         if group_temp_list[1].simul_round3_game_points > group_temp_list[2].simul_round3_game_points:
             group_temp_list[1].simul_round3_gp_points += 4
             if group_temp_list[2].simul_round3_game_points > group_temp_list[3].simul_round3_game_points:
@@ -314,17 +314,17 @@ def group_stage(player1 : Player, player2 : Player, player3 : Player, player4 : 
                 group_temp_list[1].simul_round3_gp_points += 1
                 group_temp_list[3].simul_round3_gp_points += 1
         else: # 2nd and 3rd share gp_points due to having same round game points
-                if group_temp_list[1].simul_round3_game_points > group_temp_list[3].simul_round3_game_points:
-                    group_temp_list[1].simul_round3_gp_points += 3
-                    group_temp_list[2].simul_round3_gp_points += 3
-                    group_temp_list[3].simul_round3_gp_points += 0
-                else:
-                    group_temp_list[1].simul_round3_gp_points += 2
-                    group_temp_list[2].simul_round3_gp_points += 2
-                    group_temp_list[3].simul_round3_gp_points += 2
+            if group_temp_list[1].simul_round3_game_points > group_temp_list[3].simul_round3_game_points:
+                group_temp_list[1].simul_round3_gp_points += 3
+                group_temp_list[2].simul_round3_gp_points += 3
+                group_temp_list[3].simul_round3_gp_points += 0
+            else:
+                group_temp_list[1].simul_round3_gp_points += 2
+                group_temp_list[2].simul_round3_gp_points += 2
+                group_temp_list[3].simul_round3_gp_points += 2
 
-        group_temp_list[0].simul_round3_tournament_first += 1
-        group_temp_list[1].simul_round3_tournament_second += 1
+        #group_temp_list[0].simul_round3_tournament_first += 1
+        #group_temp_list[1].simul_round3_tournament_second += 1
         print("Group Final:")
         print(group_temp_list)
         group_temp_list.sort(key=lambda x: (x.simul_round3_game_points, x.simul_round3_gp_points), reverse=True)
@@ -360,18 +360,19 @@ def group_stage(player1 : Player, player2 : Player, player3 : Player, player4 : 
                 rapid_player2_score += 1.0
 
         if rapid_player1_score > rapid_player2_score:
-            group_temp_list[0].simul_round3_tournament_first += 1
-            group_temp_list[1].simul_round3_tournament_second += 1
+            #group_temp_list[0].simul_round3_tournament_first += 1
+            #group_temp_list[1].simul_round3_tournament_second += 1
+            group_temp_list[0].simul_round3_gp_points += 7 # allocate gp_point going to semi finals
             group_temp_list[1].simul_round3_gp_points += 4 # allocate gp_point for 2nd in pool
             print("Group Final(Two-Way Tie, Rapid):")
             print(group_temp_list)
             group_temp_list.sort(key=lambda x: (x.simul_round3_game_points, x.simul_round3_gp_points), reverse=True)
             return group_temp_list[0]
         elif rapid_player2_score > rapid_player1_score:
-            group_temp_list[1].simul_round3_tournament_first += 1
-            group_temp_list[0].simul_round3_tournament_second += 1
-            group_temp_list[0].simul_round3_gp_points += 4 # allocate gp_point for 2nd in pool
-            print("Group Final(Two-Way Tie, Rapid):")
+            #group_temp_list[1].simul_round3_tournament_first += 1
+            #group_temp_list[0].simul_round3_tournament_second += 1
+            group_temp_list[1].simul_round3_gp_points += 7 # allocate gp_point going to semi finals
+            group_temp_list[0].simul_round3_gp_points += 4 # allocate gp_point for 2nd in pool            print("Group Final(Two-Way Tie, Rapid):")
             print(group_temp_list)
             group_temp_list.sort(key=lambda x: (x.simul_round3_game_points, x.simul_round3_gp_points), reverse=True)
             return group_temp_list[1]
@@ -389,16 +390,18 @@ def group_stage(player1 : Player, player2 : Player, player3 : Player, player4 : 
                     rapid_player2_score += 1.0
 
             if blitz_player1_score > blitz_player2_score:
-                group_temp_list[0].simul_round3_tournament_first += 1
-                group_temp_list[1].simul_round3_tournament_second += 1
+                #group_temp_list[0].simul_round3_tournament_first += 1
+                #group_temp_list[1].simul_round3_tournament_second += 1
+                group_temp_list[0].simul_round3_gp_points += 7  # allocate gp_point going to semi finals
                 group_temp_list[1].simul_round3_gp_points += 4  # allocate gp_point for 2nd in pool
                 print("Group Final(Two-Way Tie, Blitz):")
                 print(group_temp_list)
                 group_temp_list.sort(key=lambda x: (x.simul_round3_game_points, x.simul_round3_gp_points), reverse=True)
                 return group_temp_list[0]
             elif blitz_player2_score > blitz_player1_score:
-                group_temp_list[1].simul_round3_tournament_first += 1
-                group_temp_list[0].simul_round3_tournament_second += 1
+                #group_temp_list[1].simul_round3_tournament_first += 1
+                #group_temp_list[0].simul_round3_tournament_second += 1
+                group_temp_list[1].simul_round3_gp_points += 7  # allocate gp_point going to semi finals
                 group_temp_list[0].simul_round3_gp_points += 4  # allocate gp_point for 2nd in pool
                 print("Group Final(Two-Way Tie, Blitz):")
                 print(group_temp_list)
@@ -412,8 +415,9 @@ def group_stage(player1 : Player, player2 : Player, player3 : Player, player4 : 
                 group_temp_list[3].simul_round3_gp_points += 0
                 if random.random() < 0.5: #player1 draws white
                     if armageddon_result == 1:
-                        group_temp_list[0].simul_round3_tournament_first += 1
-                        group_temp_list[1].simul_round3_tournament_second += 1
+                        #group_temp_list[0].simul_round3_tournament_first += 1
+                        #group_temp_list[1].simul_round3_tournament_second += 1
+                        group_temp_list[0].simul_round3_gp_points += 7
                         group_temp_list[1].simul_round3_gp_points += 4  # allocate gp_point for 2nd in pool
                         print("Group Final(Two-Way Tie, Armageddon):")
                         print(group_temp_list)
@@ -421,8 +425,9 @@ def group_stage(player1 : Player, player2 : Player, player3 : Player, player4 : 
                                              reverse=True)
                         return group_temp_list[0]
                     else:
-                        group_temp_list[1].simul_round3_tournament_first += 1
-                        group_temp_list[0].simul_round3_tournament_second += 1
+                        #group_temp_list[1].simul_round3_tournament_first += 1
+                        #group_temp_list[0].simul_round3_tournament_second += 1
+                        group_temp_list[1].simul_round3_gp_points += 7
                         group_temp_list[0].simul_round3_gp_points += 4  # allocate gp_point for 2nd in pool
                         print("Group Final(Two-Way Tie, Armageddon):")
                         print(group_temp_list)
@@ -431,8 +436,9 @@ def group_stage(player1 : Player, player2 : Player, player3 : Player, player4 : 
                         return group_temp_list[1]
                 else: #player2 draws white
                     if armageddon_result == 2:
-                        group_temp_list[1].simul_round3_tournament_first += 1
-                        group_temp_list[0].simul_round3_tournament_second += 1
+                        #group_temp_list[1].simul_round3_tournament_first += 1
+                        #group_temp_list[0].simul_round3_tournament_second += 1
+                        group_temp_list[1].simul_round3_gp_points += 7
                         group_temp_list[0].simul_round3_gp_points += 4  # allocate gp_point for 2nd in pool
                         print("Group Final(Two-Way Tie, Armageddon):")
                         print(group_temp_list)
@@ -440,8 +446,9 @@ def group_stage(player1 : Player, player2 : Player, player3 : Player, player4 : 
                                              reverse=True)
                         return group_temp_list[1]
                     else:
-                        group_temp_list[0].simul_round3_tournament_first += 1
-                        group_temp_list[1].simul_round3_tournament_second += 1
+                        #group_temp_list[0].simul_round3_tournament_first += 1
+                        #group_temp_list[1].simul_round3_tournament_second += 1
+                        group_temp_list[0].simul_round3_gp_points += 7
                         group_temp_list[1].simul_round3_gp_points += 4  # allocate gp_point for 2nd in pool
                         print("Group Final(Two-Way Tie, Armageddon):")
                         print(group_temp_list)
@@ -456,11 +463,12 @@ def group_stage(player1 : Player, player2 : Player, player3 : Player, player4 : 
         # not full implementation just assume perfect randomness
         shuffle_list = [0,1,2]
         random.shuffle(shuffle_list)
+        group_temp_list[shuffle_list[0]].simul_round3_gp_points += 7
         group_temp_list[shuffle_list[1]].simul_round3_gp_points += 4  # allocate gp_point for 2nd in pool
         group_temp_list[shuffle_list[2]].simul_round3_gp_points += 2
 
-        group_temp_list[shuffle_list[0]].tournament_first += 1  # tournament first/second
-        group_temp_list[shuffle_list[1]].tournament_second += 1
+        #group_temp_list[shuffle_list[0]].tournament_first += 1  # tournament first/second
+        #group_temp_list[shuffle_list[1]].tournament_second += 1
         print("Group Final(Three Way Tie):")
         print(group_temp_list)
         group_temp_list.sort(key=lambda x: (x.simul_round3_game_points, x.simul_round3_gp_points), reverse=True)
@@ -472,12 +480,13 @@ def group_stage(player1 : Player, player2 : Player, player3 : Player, player4 : 
         # not full implementation just assume perfect randomness
         shuffle_list = [0,1,2,3]
         random.shuffle(shuffle_list)
+        group_temp_list[shuffle_list[0]].simul_round3_gp_points += 7
         group_temp_list[shuffle_list[1]].simul_round3_gp_points += 4  # allocate gp_point for 2nd in pool
         group_temp_list[shuffle_list[2]].simul_round3_gp_points += 2
         group_temp_list[shuffle_list[3]].simul_round3_gp_points += 0
 
-        group_temp_list[shuffle_list[0]].tournament_first += 1  # tournament first/second
-        group_temp_list[shuffle_list[1]].tournament_second += 1
+        #group_temp_list[shuffle_list[0]].tournament_first += 1  # tournament first/second
+        #group_temp_list[shuffle_list[1]].tournament_second += 1
         print("Group Final(Four Way Tie):")
         print(group_temp_list)
         group_temp_list.sort(key=lambda x: (x.simul_round3_game_points, x.simul_round3_gp_points), reverse=True)
@@ -496,6 +505,100 @@ def semi_final(player1: Player, player2: Player):
     if semi_final_temp_list[0].simul_round3_semi_round_points != semi_final_temp_list[1].simul_round3_semi_round_points:
         print("Semi Final:")
         print(semi_final_temp_list)
+        semi_final_temp_list[0].simul_round3_gp_points += 3 # gp_point for going to the finals
+        return semi_final_temp_list[0] # no tie break required
+    else:
+        #tie breaks for semi final
+        rapid_player1_score = 0.
+        rapid_player2_score = 0.
+        blitz_player1_score = 0.
+        blitz_player2_score = 0.
+        # rapid tiebreaks
+        for x in range(2):
+            rapid_tiebreak_result = \
+                tiebreak_chess_game(semi_final_temp_list[0].rapid_rating, semi_final_temp_list[1].rapid_rating)
+            if rapid_tiebreak_result == 0:
+                rapid_player1_score += 0.5
+                rapid_player2_score += 0.5
+            elif rapid_tiebreak_result == 1:
+                rapid_player1_score += 1.0
+            else:
+                rapid_player2_score += 1.0
+
+        if rapid_player1_score > rapid_player2_score:
+            semi_final_temp_list[0].simul_round3_gp_points += 3 # allocate gp_point for semi final winner
+            print("Semi Final(Two-Way Tie, Rapid):")
+            semi_final_temp_list.sort(key=lambda x: (x.simul_round3_semi_round_points, x.simul_round3_gp_points), \
+                                      reverse=True)
+            print(semi_final_temp_list)
+            return semi_final_temp_list[0]
+        elif rapid_player2_score > rapid_player1_score:
+            semi_final_temp_list[1].simul_round3_gp_points += 3 # allocate gp_point for semi final winner
+            print("Semi Final(Two-Way Tie, Rapid):")
+            print(semi_final_temp_list)
+            semi_final_temp_list.sort(key=lambda x: (x.simul_round3_semi_round_points, x.simul_round3_gp_points), reverse=True)
+            return semi_final_temp_list[1]
+        else:
+            #blitz tiebreak
+            for x in range(2):
+                blitz_tiebreak_result = \
+                    tiebreak_chess_game(semi_final_temp_list[0].blitz_rating, semi_final_temp_list[1].blitz_rating)
+                if blitz_tiebreak_result == 0:
+                    blitz_player1_score += 0.5
+                    blitz_player2_score += 0.5
+                elif blitz_tiebreak_result == 1:
+                    blitz_player1_score += 1.0
+                else:
+                    rapid_player2_score += 1.0
+
+            if blitz_player1_score > blitz_player2_score:
+                semi_final_temp_list[0].simul_round3_gp_points += 3  # allocate gp_point for semi final winner
+                print("Semi Final(Two-Way Tie, Blitz):")
+                print(semi_final_temp_list)
+                semi_final_temp_list.sort(key=lambda x: (x.simul_round3_semi_round_points, x.simul_round3_gp_points), reverse=True)
+                return semi_final_temp_list[0]
+            elif blitz_player2_score > blitz_player1_score:
+                semi_final_temp_list[1].simul_round3_gp_points += 3  # allocate gp_point for semi final winner
+                print("Semi Final(Two-Way Tie, Blitz):")
+                print(semi_final_temp_list)
+                semi_final_temp_list.sort(key=lambda x: (x.simul_round3_semi_round_points, x.simul_round3_gp_points), reverse=True)
+                return semi_final_temp_list[1]
+            else:
+                #armageddon, sudden death
+                armageddon_result = \
+                    tiebreak_chess_game(semi_final_temp_list[0].blitz_rating, semi_final_temp_list[1].blitz_rating)
+                if random.random() < 0.5: #player1 draws white
+                    if armageddon_result == 1:
+                        semi_final_temp_list[0].simul_round3_gp_points += 3  # allocate gp_point for semi final winner
+                        print("Semi Final(Two-Way Tie, Armageddon):")
+                        print(semi_final_temp_list)
+                        semi_final_temp_list.sort(key=lambda x: (x.simul_round3_semi_round_points, x.simul_round3_gp_points),
+                                             reverse=True)
+                        return semi_final_temp_list[0]
+                    else:
+                        semi_final_temp_list[1].simul_round3_gp_points += 3  # allocate gp_point for semi final winner
+                        print("Semi Final(Two-Way Tie, Armageddon):")
+                        print(semi_final_temp_list)
+                        semi_final_temp_list.sort(key=lambda x: (x.simul_round3_semi_round_points, x.simul_round3_gp_points),
+                                             reverse=True)
+                        return semi_final_temp_list[1]
+                else: #player2 draws white
+                    if armageddon_result == 2:
+                        semi_final_temp_list[1].simul_round3_gp_points += 3  # allocate gp_point for semi final winner
+                        print("Semi Final(Two-Way Tie, Armageddon):")
+                        print(semi_final_temp_list)
+                        semi_final_temp_list.sort(key=lambda x: (x.simul_round3_semi_round_points, x.simul_round3_gp_points),
+                                             reverse=True)
+                        return semi_final_temp_list[1]
+                    else:
+                        semi_final_temp_list[0].simul_round3_gp_points += 3  # allocate gp_point for 2nd in pool
+                        print("Semi Final(Two-Way Tie, Armageddon):")
+                        print(semi_final_temp_list)
+                        semi_final_temp_list.sort(key=lambda x: (x.simul_round3_semi_round_points, x.simul_round3_gp_points),
+                                             reverse=True)
+                        return semi_final_temp_list[0]
+
+
 
 
 
@@ -607,7 +710,7 @@ print("Semi Finalists:", a, b, c, d)
 
 
 # Group Testing
-for x in range(100):
+for x in range(1000):
     print("Group Round Epoch: ", x)
     for x in player_list:
         x.round_reset()
