@@ -24,6 +24,7 @@ class Player:
     tournament_second = 0
     game_points = 0.
     game_wins = 0
+    number_of_candidate_qualification_in_simulation = 0
     simul_round3_gp_points = 0
     simul_round3_tournament_first = 0
     simul_round3_tournament_second = 0
@@ -77,6 +78,11 @@ class Player:
         print('Classical Rating: ', self.classical_rating)
         print('Total GP Points: ', self.gp_points)
         print('\n')
+
+    def total_simulation_result_output(self):
+        print('Name: ', self.name, 'Country: ', self.country,'Classical Rating: ', self.classical_rating, \
+              'Number of Candidate Qualifcations: ', self.number_of_candidate_qualification_in_simulation)
+
 
     def round_reset(self):
         self.simul_round3_gp_points = 0
@@ -943,7 +949,7 @@ print(c_d_winner)
 tournament_winner = final(a_b_winner,c_d_winner)
 print(tournament_winner)
 
-
+#Input Result of Round 3 Simulation Into Final Tally
 for x in player_list:
     x.update_total_game_points()
 for x in player_list:
@@ -952,6 +958,8 @@ rank_players(player_list)
 print(player_list)
 
 (candidate1,candidate2) = selecting_top_two(player_list)
+player_list[candidate1].number_of_candidate_qualification_in_simulation += 1
+player_list[candidate2].number_of_candidate_qualification_in_simulation += 1
 print("The Top Two Players(Qualified for the Candidates)\n")
 print(player_list[candidate1])
 print(player_list[candidate2])
@@ -966,9 +974,73 @@ rank_players(player_list)
 
 
 
-
+'''
 print("Reverted to Original Setting:\n")
 print(player_list)
+'''
+simulation_round_number = 10000
+for x in range(simulation_round_number-1):
+    print("Round Epoch: ", x)
+    # Pool A
+    a = group_stage(player_list[2], player_list[1], player_list[9], player_list[23])
+
+    print(a)
+
+    # Pool B
+    b = group_stage(player_list[17], player_list[6], player_list[15], player_list[24])
+    print(b)
+    # Pool C
+    c = group_stage(player_list[8], player_list[7], player_list[10], player_list[16])
+    print(c)
+
+    # Pool D
+    d = group_stage(player_list[5], player_list[13], player_list[22], player_list[14])
+    print(d)
+
+    print("Semi Finalists:", a, b, c, d)
+
+
+    rank_players(player_list)
+    print(player_list)
+    print(player_list[1].simul_round3_gp_points)
+    # Semi Finals
+    # Semi Final1: Winner of Pool A vs Winner of Pool B
+    a_b_winner = semi_final(a, b)
+    # Semi Final2: Winner of Pool C vs Winner of Pool D
+    c_d_winner = semi_final(c, d)
+    print(a_b_winner)
+    print(c_d_winner)
+    # Final
+    tournament_winner = final(a_b_winner, c_d_winner)
+    print(tournament_winner)
+
+    # Input Result of Round 3 Simulation Into Final Tally
+    for x in player_list:
+        x.update_total_game_points()
+    for x in player_list:
+        x.merge_round3_simul_result()
+    rank_players(player_list)
+    print(player_list)
+
+    (candidate1, candidate2) = selecting_top_two(player_list)
+    player_list[candidate1].number_of_candidate_qualification_in_simulation += 1
+    player_list[candidate2].number_of_candidate_qualification_in_simulation += 1
+    print("The Top Two Players(Qualified for the Candidates)\n")
+    print(player_list[candidate1])
+    print(player_list[candidate2])
+
+    # Reset Process
+    for x in player_list:
+        x.divest_round3_simul_result()
+    for x in player_list:
+        x.round_reset()
+    rank_players(player_list)
+
+print("Name, Country, Rating , # of Candidate Qualifications\n")
+for x in player_list:
+    x.total_simulation_result_output()
+
+
 
 
 
@@ -992,6 +1064,38 @@ for x in range(0):
     print("!!")
     print(a_b_winner)
     print(c_d_winner)
+
+'''
+Result for 10000 Simulations:
+Name, Country, Rating , # of Candidate Qualifications
+
+Name:  Richárd Rapport Country:  HUN Classical Rating:  2762 Number of Candidate Qualifcations:  9996
+Name:  Hikaru Nakamura Country:  USA Classical Rating:  2750 Number of Candidate Qualifcations:  3885
+Name:  Levon Aronian Country:  USA Classical Rating:  2785 Number of Candidate Qualifcations:  258
+Name:  Dmitry Andreikin Country:  FIDE Classical Rating:  2723 Number of Candidate Qualifcations:  0
+Name:  Vidit Gujrathi Country:  IND Classical Rating:  2723 Number of Candidate Qualifcations:  0
+Name:  Anish Giri Country:  NED Classical Rating:  2771 Number of Candidate Qualifcations:  211
+Name:  Leinier Domínguez Country:  USA Classical Rating:  2756 Number of Candidate Qualifcations:  685
+Name:  Maxime Vachier-Lagrave Country:  FRA Classical Rating:  2761 Number of Candidate Qualifcations:  173
+Name:  Wesley So Country:  USA Classical Rating:  2778 Number of Candidate Qualifcations:  36
+Name:  Andrey Esipenko Country:  FIDE Classical Rating:  2723 Number of Candidate Qualifcations:  43
+Name:  Sam Shankland Country:  USA Classical Rating:  2704 Number of Candidate Qualifcations:  157
+Name:  Radosław Wojtaszek Country:  POL Classical Rating:  2694 Number of Candidate Qualifcations:  0
+Name:  Vladimir Fedoseev Country:  FIDE Classical Rating:  2704 Number of Candidate Qualifcations:  0
+Name:  Amin Tabatabaei Country:  IRI Classical Rating:  2623 Number of Candidate Qualifcations:  705
+Name:  Nikita Vitiugov Country:  FIDE Classical Rating:  2726 Number of Candidate Qualifcations:  1225
+Name:  Alexandr Predke Country:  FIDE Classical Rating:  2682 Number of Candidate Qualifcations:  1074
+Name:  Daniil Dubov Country:  FIDE Classical Rating:  2711 Number of Candidate Qualifcations:  1247
+Name:  Shakhriyar Mamedyarov Country:  AZE Classical Rating:  2776 Number of Candidate Qualifcations:  22
+Name:  Alexander Grischuk Country:  FIDE Classical Rating:  2758 Number of Candidate Qualifcations:  0
+Name:  Pentala Harikrishna Country:  IND Classical Rating:  2716 Number of Candidate Qualifcations:  0
+Name:  Étienne Bacrot Country:  FRA Classical Rating:  2635 Number of Candidate Qualifcations:  0
+Name:  Alexei Shirov Country:  ESP Classical Rating:  2691 Number of Candidate Qualifcations:  0
+Name:  Yu Yangyi Country:  CHN Classical Rating:  2713 Number of Candidate Qualifcations:  226
+Name:  Grigoriy Oparin Country:  FIDE Classical Rating:  2674 Number of Candidate Qualifcations:  11
+Name:  Vincent Keymer Country:  CHN Classical Rating:  2655 Number of Candidate Qualifcations:  46
+Name:  Ding Liren Country:  CHN Classical Rating:  2799 Number of Candidate Qualifcations:  0
+'''
 '''
 for x in range(1000):
     group_stage(player_list[2], player_list[1], player_list[9], player_list[23])
