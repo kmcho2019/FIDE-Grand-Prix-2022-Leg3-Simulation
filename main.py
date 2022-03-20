@@ -754,6 +754,58 @@ def final(player1: Player, player2: Player):
                         return final_temp_list[0]
 
 
+def search_recursion1(player_list: list, index_num: int) -> int:
+    x = 1
+    list = []
+    if player_list[1].rank != player_list[index_num].rank and index_num < len(player_list):
+        for x in range(1, index_num):
+            list.append(x)
+        random.shuffle(list)
+        return list[0]
+    elif player_list[0].rank == player_list[index_num].rank and index_num < len(player_list):
+        search_recursion1(player_list, index_num + 1)
+    else:
+        print("Error! Index for player_list out of bounds.")
+        return None
+def search_recursion2(player_list: list, index_num: int) ->(int, int):
+    x = 0
+    list = []
+    if player_list[0].rank != player_list[index_num].rank and index_num < len(player_list):
+        for x in range(index_num):
+            list.append(x)
+        random.shuffle(list)
+        return (list[0], list[1])
+    elif player_list[0].rank == player_list[index_num].rank and index_num < len(player_list):
+        search_recursion2(player_list, index_num + 1)
+    else:
+        print("Error! Index for player_list out of bounds.")
+        return None
+
+
+def selecting_top_two(player_list: list) -> (int, int):
+    player1_index = 0
+    player2_index = 0
+    if player_list[0].rank != player_list[1].rank:
+        player1_index = 0
+        if player_list[1].rank != player_list[2].rank:
+            player2_index = 1
+        else:
+            player2_index = search_recursion1(player_list, 3)
+    else:
+        if player_list[0].rank != player_list[2].rank:
+            player1_index = 0
+            player2_index = 1
+        else:
+            if player_list[0].rank != player_list[3].rank:
+                list = [0,1,2]
+                random.shuffle(list)
+                player1_index = list[0]
+                player2_index = list[1]
+            else:
+                (player1_index,player2_index) = search_recursion2(player_list, 4)
+    return (player1_index, player2_index)
+
+
 
 
 
@@ -890,19 +942,37 @@ print(c_d_winner)
 #Final
 tournament_winner = final(a_b_winner,c_d_winner)
 print(tournament_winner)
+
+
 for x in player_list:
     x.update_total_game_points()
 for x in player_list:
     x.merge_round3_simul_result()
 rank_players(player_list)
 print(player_list)
+
+(candidate1,candidate2) = selecting_top_two(player_list)
+print("The Top Two Players(Qualified for the Candidates)\n")
+print(player_list[candidate1])
+print(player_list[candidate2])
+
+#Reset Process
 for x in player_list:
     x.divest_round3_simul_result()
 for x in player_list:
     x.round_reset()
 rank_players(player_list)
+
+
+
+
+
 print("Reverted to Original Setting:\n")
 print(player_list)
+
+
+
+
 #Group-Semi Testing
 for x in range(0):
     print("Round Epoch: ", x)
