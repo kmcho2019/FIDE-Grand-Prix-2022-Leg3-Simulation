@@ -980,7 +980,7 @@ print(player_list)
 '''
 simulation_round_number = 1000000
 for x in range(simulation_round_number-1):
-    if x % 100 == 0:
+    if x % 10000 == 0:
         print("Round Epoch: (Total)", x, simulation_round_number)
     # Pool A
     a = group_stage(player_list[2], player_list[1], player_list[9], player_list[23])
@@ -1066,6 +1066,39 @@ for x in range(0):
     print(a_b_winner)
     print(c_d_winner)
 
+'''
+Result for 1000000 Simulations:
+Name, Country, Rating , # of Candidate Qualifications
+
+Name:  Richárd Rapport Country:  HUN Classical Rating:  2762 Number of Candidate Qualifcations:  999133
+Name:  Hikaru Nakamura Country:  USA Classical Rating:  2750 Number of Candidate Qualifcations:  389486
+Name:  Levon Aronian Country:  USA Classical Rating:  2785 Number of Candidate Qualifcations:  25167
+Name:  Dmitry Andreikin Country:  FIDE Classical Rating:  2723 Number of Candidate Qualifcations:  0
+Name:  Vidit Gujrathi Country:  IND Classical Rating:  2723 Number of Candidate Qualifcations:  0
+Name:  Anish Giri Country:  NED Classical Rating:  2771 Number of Candidate Qualifcations:  21347
+Name:  Leinier Domínguez Country:  USA Classical Rating:  2756 Number of Candidate Qualifcations:  65692
+Name:  Maxime Vachier-Lagrave Country:  FRA Classical Rating:  2761 Number of Candidate Qualifcations:  15673
+Name:  Wesley So Country:  USA Classical Rating:  2778 Number of Candidate Qualifcations:  3785
+Name:  Andrey Esipenko Country:  FIDE Classical Rating:  2723 Number of Candidate Qualifcations:  4839
+Name:  Sam Shankland Country:  USA Classical Rating:  2704 Number of Candidate Qualifcations:  17173
+Name:  Radosław Wojtaszek Country:  POL Classical Rating:  2694 Number of Candidate Qualifcations:  0
+Name:  Vladimir Fedoseev Country:  FIDE Classical Rating:  2704 Number of Candidate Qualifcations:  0
+Name:  Alexandr Predke Country:  FIDE Classical Rating:  2682 Number of Candidate Qualifcations:  107968
+Name:  Amin Tabatabaei Country:  IRI Classical Rating:  2623 Number of Candidate Qualifcations:  70067
+Name:  Daniil Dubov Country:  FIDE Classical Rating:  2711 Number of Candidate Qualifcations:  127161
+Name:  Nikita Vitiugov Country:  FIDE Classical Rating:  2726 Number of Candidate Qualifcations:  120976
+Name:  Shakhriyar Mamedyarov Country:  AZE Classical Rating:  2776 Number of Candidate Qualifcations:  2894
+Name:  Alexander Grischuk Country:  FIDE Classical Rating:  2758 Number of Candidate Qualifcations:  0
+Name:  Pentala Harikrishna Country:  IND Classical Rating:  2716 Number of Candidate Qualifcations:  0
+Name:  Étienne Bacrot Country:  FRA Classical Rating:  2635 Number of Candidate Qualifcations:  0
+Name:  Alexei Shirov Country:  ESP Classical Rating:  2691 Number of Candidate Qualifcations:  0
+Name:  Yu Yangyi Country:  CHN Classical Rating:  2713 Number of Candidate Qualifcations:  24012
+Name:  Grigoriy Oparin Country:  FIDE Classical Rating:  2674 Number of Candidate Qualifcations:  737
+Name:  Vincent Keymer Country:  CHN Classical Rating:  2655 Number of Candidate Qualifcations:  3890
+Name:  Ding Liren Country:  CHN Classical Rating:  2799 Number of Candidate Qualifcations:  0
+
+Process finished with exit code 0
+'''
 '''
 Result for 10000 Simulations:
 Name, Country, Rating , # of Candidate Qualifications
