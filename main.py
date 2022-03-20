@@ -505,9 +505,10 @@ def semi_final(player1: Player, player2: Player):
     semi_final_temp_list.sort(key=lambda x: (x.simul_round3_semi_round_points), reverse= True)
 
     if semi_final_temp_list[0].simul_round3_semi_round_points != semi_final_temp_list[1].simul_round3_semi_round_points:
-        print("Semi Final:")
-        print(semi_final_temp_list)
         semi_final_temp_list[0].simul_round3_gp_points += 3 # gp_point for going to the finals
+        print("Semi Final:")
+        semi_final_temp_list.sort(key=lambda x: (x.simul_round3_semi_round_points), reverse=True)
+        print(semi_final_temp_list)
         semi_final_temp_list.sort(key=lambda x: (x.simul_round3_semi_round_points), reverse=True)
         return semi_final_temp_list[0] # no tie break required
     else:
@@ -741,6 +742,26 @@ a_b_winner = semi_final(a, b)
 c_d_winner = semi_final(c, d)
 print(a_b_winner)
 print(c_d_winner)
+
+#Group-Semi Testing
+for x in range(100):
+    print("Round Epoch: ", x)
+    for x in player_list:
+        x.round_reset()
+    a = group_stage(player_list[2], player_list[1], player_list[9], player_list[23])
+    print(a)
+    b = group_stage(player_list[17], player_list[6], player_list[15], player_list[24])
+    print(b)
+    c = group_stage(player_list[8], player_list[7], player_list[10], player_list[16])
+    print(c)
+    d = group_stage(player_list[5], player_list[13], player_list[22], player_list[14])
+    print(d)
+    a_b_winner = semi_final(a, b)
+    # Semi Final2: Winner of Pool C vs Winner of Pool D
+    c_d_winner = semi_final(c, d)
+    print("!!")
+    print(a_b_winner)
+    print(c_d_winner)
 '''
 for x in range(1000):
     group_stage(player_list[2], player_list[1], player_list[9], player_list[23])
