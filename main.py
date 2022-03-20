@@ -88,6 +88,23 @@ class Player:
         self.simul_round3_final_round_points = 0.
         self.simul_round3_game_wins = 0
 
+    def update_total_game_points(self):
+        self.simul_round3_total_game_points = self.simul_round3_game_points + self.simul_round3_semi_round_points +\
+                                              self.simul_round3_final_round_points
+    def merge_round3_simul_result(self):
+        self.gp_points += self.simul_round3_gp_points
+        self.tournament_first += self.simul_round3_tournament_first
+        self.tournament_second += self.simul_round3_tournament_second
+        self.game_points += self.simul_round3_total_game_points
+        self.game_wins += self.simul_round3_game_wins
+
+    def divest_round3_simul_result(self):
+        self.gp_points -= self.simul_round3_gp_points
+        self.tournament_first -= self.simul_round3_tournament_first
+        self.tournament_second -= self.simul_round3_tournament_second
+        self.game_points -= self.simul_round3_total_game_points
+        self.game_wins -= self.simul_round3_game_wins
+
 
 player_list = []
 # initialize players (rating as of 3/19/2022, before 3rd(last) tournament)
@@ -873,6 +890,19 @@ print(c_d_winner)
 #Final
 tournament_winner = final(a_b_winner,c_d_winner)
 print(tournament_winner)
+for x in player_list:
+    x.update_total_game_points()
+for x in player_list:
+    x.merge_round3_simul_result()
+rank_players(player_list)
+print(player_list)
+for x in player_list:
+    x.divest_round3_simul_result()
+for x in player_list:
+    x.round_reset()
+rank_players(player_list)
+print("Reverted to Original Setting:\n")
+print(player_list)
 #Group-Semi Testing
 for x in range(0):
     print("Round Epoch: ", x)
