@@ -2,7 +2,7 @@ import math
 import matplotlib.pyplot as plt
 from enum import Enum
 import random
-
+simulation_round_number = 10000000
 # Tournament 3 - Berlin Germany Result Simulation
 # Chess Win/Draw probability taken from:https://wismuth.com/elo/calculator.html
 # No distinguishing between white/black as each player get two tries each
@@ -25,6 +25,10 @@ class Player:
     game_points = 0.
     game_wins = 0
     number_of_candidate_qualification_in_simulation = 0
+    number_of_first_places_in_tournament = 0
+    number_of_second_places_in_tournament = 0
+    total_number_of_simul_round3_gp_points = 0
+    total_number_of_gp_points = 0
     simul_round3_gp_points = 0
     simul_round3_tournament_first = 0
     simul_round3_tournament_second = 0
@@ -110,7 +114,17 @@ class Player:
         self.tournament_second -= self.simul_round3_tournament_second
         self.game_points -= self.simul_round3_total_game_points
         self.game_wins -= self.simul_round3_game_wins
-
+        self.number_of_first_places_in_tournament += self.tournament_first
+        self.number_of_second_places_in_tournament += self.tournament_second
+        self.total_number_of_simul_round3_gp_points += self.simul_round3_gp_points
+        self.total_number_of_gp_points += self.gp_points
+    def print_result(self, simulation_round_number):
+        print(self.name + ': ' + str(self.number_of_candidate_qualification_in_simulation / simulation_round_number) + \
+              ', ' + \
+              str(self.total_number_of_gp_points / simulation_round_number) + ', ' + \
+              str(self.total_number_of_simul_round3_gp_points / simulation_round_number) + ', ' + \
+              str(self.number_of_first_places_in_tournament / simulation_round_number) + ', ' + \
+              str(self.number_of_second_places_in_tournament / simulation_round_number))
 
 player_list = []
 # initialize players (rating as of 3/19/2022, before 3rd(last) tournament)
@@ -978,7 +992,7 @@ rank_players(player_list)
 print("Reverted to Original Setting:\n")
 print(player_list)
 '''
-simulation_round_number = 1000000
+
 for x in range(simulation_round_number-1):
     if x % 10000 == 0:
         print("Round Epoch: (Total)", x, simulation_round_number)
@@ -1037,13 +1051,33 @@ for x in range(simulation_round_number-1):
         x.round_reset()
     rank_players(player_list)
 
+print('Result:\n')
 print("Name, Country, Rating , # of Candidate Qualifications\n")
 for x in player_list:
     x.total_simulation_result_output()
 
+'''
+result_list = []
+for x in player_list:
+    result_list.append(
+    result_list.append((x.name, x.number_of_candidate_qualification_in_simulation, x.total_number_of_gp_points, \
+                        x.total_number_of_simul_round3_gp_points, x.number_of_first_places_in_tournament,\
+                        x.number_of_second_places_in_tournament ))
+'''
 
-
-
+print("Name, Number of Candidate Qualifications, Average GP Point, Average GP Point in Round 3, "
+      "Number of First in Round 3, Number of Seconds in Round3")
+for x in player_list:
+    x.print_result(simulation_round_number)
+'''
+print(result_list)
+for x in result_list:
+    print(x.name +': ' + str(x.number_of_candidate_qualification_in_simulation/simulation_round_number) + ', ' + \
+    str(x.total_number_of_gp_points/simulation_round_number) + ', '+ \
+    str(x.total_number_of_simul_round3_gp_points/simulation_round_number) + ', ' + \
+    str(x.number_of_first_places_in_tournament/simulation_round_number) + ', ' + \
+    str(x.number_of_second_places_in_tournament/simulation_round_number))
+'''
 
 
 #Group-Semi Testing
@@ -1065,6 +1099,69 @@ for x in range(0):
     print("!!")
     print(a_b_winner)
     print(c_d_winner)
+
+'''
+Result for 10000000 Simulations:
+(Figure besides Qualification Numbers could be inaccurate)
+Name, Country, Rating , # of Candidate Qualifications
+
+Name:  Richárd Rapport Country:  HUN Classical Rating:  2762 Number of Candidate Qualifcations:  9991368
+Name:  Hikaru Nakamura Country:  USA Classical Rating:  2750 Number of Candidate Qualifcations:  3893358
+Name:  Levon Aronian Country:  USA Classical Rating:  2785 Number of Candidate Qualifcations:  252256
+Name:  Dmitry Andreikin Country:  FIDE Classical Rating:  2723 Number of Candidate Qualifcations:  0
+Name:  Vidit Gujrathi Country:  IND Classical Rating:  2723 Number of Candidate Qualifcations:  0
+Name:  Anish Giri Country:  NED Classical Rating:  2771 Number of Candidate Qualifcations:  212898
+Name:  Leinier Domínguez Country:  USA Classical Rating:  2756 Number of Candidate Qualifcations:  657345
+Name:  Maxime Vachier-Lagrave Country:  FRA Classical Rating:  2761 Number of Candidate Qualifcations:  159534
+Name:  Wesley So Country:  USA Classical Rating:  2778 Number of Candidate Qualifcations:  37090
+Name:  Andrey Esipenko Country:  FIDE Classical Rating:  2723 Number of Candidate Qualifcations:  46946
+Name:  Sam Shankland Country:  USA Classical Rating:  2704 Number of Candidate Qualifcations:  171165
+Name:  Radosław Wojtaszek Country:  POL Classical Rating:  2694 Number of Candidate Qualifcations:  0
+Name:  Vladimir Fedoseev Country:  FIDE Classical Rating:  2704 Number of Candidate Qualifcations:  0
+Name:  Alexandr Predke Country:  FIDE Classical Rating:  2682 Number of Candidate Qualifcations:  1078532
+Name:  Daniil Dubov Country:  FIDE Classical Rating:  2711 Number of Candidate Qualifcations:  1277540
+Name:  Nikita Vitiugov Country:  FIDE Classical Rating:  2726 Number of Candidate Qualifcations:  1207496
+Name:  Amin Tabatabaei Country:  IRI Classical Rating:  2623 Number of Candidate Qualifcations:  700078
+Name:  Shakhriyar Mamedyarov Country:  AZE Classical Rating:  2776 Number of Candidate Qualifcations:  29247
+Name:  Alexander Grischuk Country:  FIDE Classical Rating:  2758 Number of Candidate Qualifcations:  0
+Name:  Pentala Harikrishna Country:  IND Classical Rating:  2716 Number of Candidate Qualifcations:  0
+Name:  Étienne Bacrot Country:  FRA Classical Rating:  2635 Number of Candidate Qualifcations:  0
+Name:  Alexei Shirov Country:  ESP Classical Rating:  2691 Number of Candidate Qualifcations:  0
+Name:  Yu Yangyi Country:  CHN Classical Rating:  2713 Number of Candidate Qualifcations:  239329
+Name:  Grigoriy Oparin Country:  FIDE Classical Rating:  2674 Number of Candidate Qualifcations:  7458
+Name:  Vincent Keymer Country:  CHN Classical Rating:  2655 Number of Candidate Qualifcations:  38360
+Name:  Ding Liren Country:  CHN Classical Rating:  2799 Number of Candidate Qualifcations:  0
+Name, Number of Candidate Qualifications, Average GP Point, Average GP Point in Round 3, Number of First in Round 3, Number of Seconds in Round3
+Richárd Rapport: 0.9991368, 20.0, 0.0, 1.0, 0.0
+Hikaru Nakamura: 0.3893358, 13.0, 2.4321595, 1.0, 0.0
+Levon Aronian: 0.0252256, 10.0, 1.0837481, 0.0, 1.0
+Dmitry Andreikin: 0.0, 10.0, 0.0, 0.0, 1.0
+Vidit Gujrathi: 0.0, 7.0, 0.0, 0.0, 0.0
+Anish Giri: 0.0212898, 7.0, 1.2484393, 0.0, 0.0
+Leinier Domínguez: 0.0657345, 7.0, 2.803713, 0.0, 0.0
+Maxime Vachier-Lagrave: 0.0159534, 7.0, 2.4927594, 0.0, 0.0
+Wesley So: 0.003709, 4.0, 1.0976934, 0.0, 0.0
+Andrey Esipenko: 0.0046946, 4.0, 4.0070914, 0.0, 0.0
+Sam Shankland: 0.0171165, 4.0, 3.9724473, 0.0, 0.0
+Radosław Wojtaszek: 0.0, 4.0, 0.0, 0.0, 0.0
+Vladimir Fedoseev: 0.0, 3.0, 0.0, 0.0, 0.0
+Alexandr Predke: 0.1078532, 3.0, 5.5461674, 0.0, 0.0
+Daniil Dubov: 0.127754, 3.0, 5.8200516, 0.0, 0.0
+Nikita Vitiugov: 0.1207496, 3.0, 5.7869969, 0.0, 0.0
+Amin Tabatabaei: 0.0700078, 3.0, 4.8818094, 0.0, 0.0
+Shakhriyar Mamedyarov: 0.0029247, 3.0, 1.2677241, 0.0, 0.0
+Alexander Grischuk: 0.0, 2.0, 0.0, 0.0, 0.0
+Pentala Harikrishna: 0.0, 2.0, 0.0, 0.0, 0.0
+Étienne Bacrot: 0.0, 2.0, 0.0, 0.0, 0.0
+Alexei Shirov: 0.0, 1.0, 0.0, 0.0, 0.0
+Yu Yangyi: 0.0239329, 0.0, 5.3469212, 0.0, 0.0
+Grigoriy Oparin: 0.0007458, 0.0, 5.9711915, 0.0, 0.0
+Vincent Keymer: 0.003836, 0.0, 7.3714253, 0.0, 0.0
+Ding Liren: 0.0, 0.0, 0.0, 0.0, 0.0
+
+Process finished with exit code 0
+
+'''
 
 '''
 Result for 1000000 Simulations:
