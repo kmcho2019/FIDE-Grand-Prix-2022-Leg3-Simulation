@@ -107,6 +107,10 @@ class Player:
         self.tournament_second += self.simul_round3_tournament_second
         self.game_points += self.simul_round3_total_game_points
         self.game_wins += self.simul_round3_game_wins
+        self.number_of_first_places_in_tournament += self.tournament_first
+        self.number_of_second_places_in_tournament += self.tournament_second
+        self.total_number_of_simul_round3_gp_points += self.simul_round3_gp_points
+        self.total_number_of_gp_points += self.gp_points
 
     def divest_round3_simul_result(self):
         self.gp_points -= self.simul_round3_gp_points
@@ -114,10 +118,7 @@ class Player:
         self.tournament_second -= self.simul_round3_tournament_second
         self.game_points -= self.simul_round3_total_game_points
         self.game_wins -= self.simul_round3_game_wins
-        self.number_of_first_places_in_tournament += self.tournament_first
-        self.number_of_second_places_in_tournament += self.tournament_second
-        self.total_number_of_simul_round3_gp_points += self.simul_round3_gp_points
-        self.total_number_of_gp_points += self.gp_points
+
     def print_result(self, simulation_round_number):
         print(self.name + ': ' + str(self.number_of_candidate_qualification_in_simulation / simulation_round_number) + \
               ', ' + \
@@ -1050,7 +1051,7 @@ for x in range(simulation_round_number-1):
     for x in player_list:
         x.round_reset()
     rank_players(player_list)
-
+player_list.sort(key=lambda x: (x.number_of_candidate_qualification_in_simulation), reverse=True)
 print('Result:\n')
 print("Name, Country, Rating , # of Candidate Qualifications\n")
 for x in player_list:
@@ -1069,6 +1070,36 @@ print("Name, Number of Candidate Qualifications, Average GP Point, Average GP Po
       "Number of First in Round 3, Number of Seconds in Round3")
 for x in player_list:
     x.print_result(simulation_round_number)
+
+print('####\n')
+
+print("Order by Average GP Point")
+player_list.sort(key=lambda x: (x.total_number_of_gp_points), reverse=True)
+for x in player_list:
+    x.print_result(simulation_round_number)
+print('####\n')
+
+print("Order by Average GP Point in Round 3")
+player_list.sort(key=lambda x: (x.total_number_of_simul_round3_gp_points), reverse=True)
+for x in player_list:
+    x.print_result(simulation_round_number)
+
+print('####\n')
+
+print("Order by Average Firsts in Round 3")
+player_list.sort(key=lambda x: (x.number_of_first_places_in_tournament), reverse=True)
+for x in player_list:
+    x.print_result(simulation_round_number)
+
+print('####\n')
+
+print("Order by Average Seconds in Round 3")
+player_list.sort(key=lambda x: (x.number_of_second_places_in_tournament), reverse=True)
+for x in player_list:
+    x.print_result(simulation_round_number)
+
+print('####\n')
+
 '''
 print(result_list)
 for x in result_list:
