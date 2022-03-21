@@ -1132,6 +1132,185 @@ for x in range(0):
     print(c_d_winner)
 
 '''
+Ordered Results:
+
+Name:  Richárd Rapport Country:  HUN Classical Rating:  2762 Number of Candidate Qualifcations:  9991479
+Name:  Hikaru Nakamura Country:  USA Classical Rating:  2750 Number of Candidate Qualifcations:  3892734
+Name:  Daniil Dubov Country:  FIDE Classical Rating:  2711 Number of Candidate Qualifcations:  1277000
+Name:  Nikita Vitiugov Country:  FIDE Classical Rating:  2726 Number of Candidate Qualifcations:  1206781
+Name:  Alexandr Predke Country:  FIDE Classical Rating:  2682 Number of Candidate Qualifcations:  1076520
+Name:  Amin Tabatabaei Country:  IRI Classical Rating:  2623 Number of Candidate Qualifcations:  700988
+Name:  Leinier Domínguez Country:  USA Classical Rating:  2756 Number of Candidate Qualifcations:  657352
+Name:  Levon Aronian Country:  USA Classical Rating:  2785 Number of Candidate Qualifcations:  252903
+Name:  Yu Yangyi Country:  CHN Classical Rating:  2713 Number of Candidate Qualifcations:  240148
+Name:  Anish Giri Country:  NED Classical Rating:  2771 Number of Candidate Qualifcations:  213890
+Name:  Sam Shankland Country:  USA Classical Rating:  2704 Number of Candidate Qualifcations:  171527
+Name:  Maxime Vachier-Lagrave Country:  FRA Classical Rating:  2761 Number of Candidate Qualifcations:  159375
+Name:  Andrey Esipenko Country:  FIDE Classical Rating:  2723 Number of Candidate Qualifcations:  47460
+Name:  Vincent Keymer Country:  CHN Classical Rating:  2655 Number of Candidate Qualifcations:  38216
+Name:  Wesley So Country:  USA Classical Rating:  2778 Number of Candidate Qualifcations:  37206
+Name:  Shakhriyar Mamedyarov Country:  AZE Classical Rating:  2776 Number of Candidate Qualifcations:  28955
+Name:  Grigoriy Oparin Country:  FIDE Classical Rating:  2674 Number of Candidate Qualifcations:  7466
+Name:  Dmitry Andreikin Country:  FIDE Classical Rating:  2723 Number of Candidate Qualifcations:  0
+Name:  Vidit Gujrathi Country:  IND Classical Rating:  2723 Number of Candidate Qualifcations:  0
+Name:  Radosław Wojtaszek Country:  POL Classical Rating:  2694 Number of Candidate Qualifcations:  0
+Name:  Vladimir Fedoseev Country:  FIDE Classical Rating:  2704 Number of Candidate Qualifcations:  0
+Name:  Alexander Grischuk Country:  FIDE Classical Rating:  2758 Number of Candidate Qualifcations:  0
+Name:  Pentala Harikrishna Country:  IND Classical Rating:  2716 Number of Candidate Qualifcations:  0
+Name:  Étienne Bacrot Country:  FRA Classical Rating:  2635 Number of Candidate Qualifcations:  0
+Name:  Alexei Shirov Country:  ESP Classical Rating:  2691 Number of Candidate Qualifcations:  0
+Name:  Ding Liren Country:  CHN Classical Rating:  2799 Number of Candidate Qualifcations:  0
+Name, Number of Candidate Qualifications, Average GP Point, Average GP Point in Round 3, Number of First in Round 3, Number of Seconds in Round3
+Richárd Rapport: 0.9991479, 20.0, 0.0, 1.0, 0.0
+Hikaru Nakamura: 0.3892734, 15.4328373, 2.4328373, 1.0040816, 0.0166808
+Daniil Dubov: 0.1277, 8.8195538, 5.8195538, 0.1983208, 0.0619536
+Nikita Vitiugov: 0.1206781, 8.7852381, 5.7852381, 0.1857358, 0.0648246
+Alexandr Predke: 0.107652, 8.5445764, 5.5445764, 0.1653765, 0.0629623
+Amin Tabatabaei: 0.0700988, 7.8850357, 4.8850357, 0.1049999, 0.0583301
+Leinier Domínguez: 0.0657352, 9.8035186, 2.8035186, 0.0136829, 0.0771617
+Levon Aronian: 0.0252903, 11.0838836, 1.0838836, 0.000807, 1.0040046
+Yu Yangyi: 0.0240148, 5.3480202, 5.3480202, 0.2131764, 0.0146035
+Anish Giri: 0.021389, 8.250327, 1.250327, 0.0210273, 0.0012965
+Sam Shankland: 0.0171527, 7.972773, 3.972773, 0.0197524, 0.0021035
+Maxime Vachier-Lagrave: 0.0159375, 9.492628, 2.492628, 0.0134862, 0.000881
+Andrey Esipenko: 0.004746, 8.0078246, 4.0078246, 0.00372, 0.0292951
+Vincent Keymer: 0.0038216, 7.3697382, 7.3697382, 0.0393176, 0.508513
+Wesley So: 0.0037206, 5.0974575, 1.0974575, 0.0042605, 0.0002411
+Shakhriyar Mamedyarov: 0.0028955, 4.2666653, 1.2666653, 0.0045655, 0.0236598
+Grigoriy Oparin: 0.0007466, 5.9701983, 5.9701983, 0.0076896, 0.0734888
+Dmitry Andreikin: 0.0, 10.0, 0.0, 0.0, 1.0
+Vidit Gujrathi: 0.0, 7.0, 0.0, 0.0, 0.0
+Radosław Wojtaszek: 0.0, 4.0, 0.0, 0.0, 0.0
+Vladimir Fedoseev: 0.0, 3.0, 0.0, 0.0, 0.0
+Alexander Grischuk: 0.0, 2.0, 0.0, 0.0, 0.0
+Pentala Harikrishna: 0.0, 2.0, 0.0, 0.0, 0.0
+Étienne Bacrot: 0.0, 2.0, 0.0, 0.0, 0.0
+Alexei Shirov: 0.0, 1.0, 0.0, 0.0, 0.0
+Ding Liren: 0.0, 0.0, 0.0, 0.0, 0.0
+####
+
+Order by Average GP Point
+Richárd Rapport: 0.9991479, 20.0, 0.0, 1.0, 0.0
+Hikaru Nakamura: 0.3892734, 15.4328373, 2.4328373, 1.0040816, 0.0166808
+Levon Aronian: 0.0252903, 11.0838836, 1.0838836, 0.000807, 1.0040046
+Dmitry Andreikin: 0.0, 10.0, 0.0, 0.0, 1.0
+Leinier Domínguez: 0.0657352, 9.8035186, 2.8035186, 0.0136829, 0.0771617
+Maxime Vachier-Lagrave: 0.0159375, 9.492628, 2.492628, 0.0134862, 0.000881
+Daniil Dubov: 0.1277, 8.8195538, 5.8195538, 0.1983208, 0.0619536
+Nikita Vitiugov: 0.1206781, 8.7852381, 5.7852381, 0.1857358, 0.0648246
+Alexandr Predke: 0.107652, 8.5445764, 5.5445764, 0.1653765, 0.0629623
+Anish Giri: 0.021389, 8.250327, 1.250327, 0.0210273, 0.0012965
+Andrey Esipenko: 0.004746, 8.0078246, 4.0078246, 0.00372, 0.0292951
+Sam Shankland: 0.0171527, 7.972773, 3.972773, 0.0197524, 0.0021035
+Amin Tabatabaei: 0.0700988, 7.8850357, 4.8850357, 0.1049999, 0.0583301
+Vincent Keymer: 0.0038216, 7.3697382, 7.3697382, 0.0393176, 0.508513
+Vidit Gujrathi: 0.0, 7.0, 0.0, 0.0, 0.0
+Grigoriy Oparin: 0.0007466, 5.9701983, 5.9701983, 0.0076896, 0.0734888
+Yu Yangyi: 0.0240148, 5.3480202, 5.3480202, 0.2131764, 0.0146035
+Wesley So: 0.0037206, 5.0974575, 1.0974575, 0.0042605, 0.0002411
+Shakhriyar Mamedyarov: 0.0028955, 4.2666653, 1.2666653, 0.0045655, 0.0236598
+Radosław Wojtaszek: 0.0, 4.0, 0.0, 0.0, 0.0
+Vladimir Fedoseev: 0.0, 3.0, 0.0, 0.0, 0.0
+Alexander Grischuk: 0.0, 2.0, 0.0, 0.0, 0.0
+Pentala Harikrishna: 0.0, 2.0, 0.0, 0.0, 0.0
+Étienne Bacrot: 0.0, 2.0, 0.0, 0.0, 0.0
+Alexei Shirov: 0.0, 1.0, 0.0, 0.0, 0.0
+Ding Liren: 0.0, 0.0, 0.0, 0.0, 0.0
+####
+
+Order by Average GP Point in Round 3
+Vincent Keymer: 0.0038216, 7.3697382, 7.3697382, 0.0393176, 0.508513
+Grigoriy Oparin: 0.0007466, 5.9701983, 5.9701983, 0.0076896, 0.0734888
+Daniil Dubov: 0.1277, 8.8195538, 5.8195538, 0.1983208, 0.0619536
+Nikita Vitiugov: 0.1206781, 8.7852381, 5.7852381, 0.1857358, 0.0648246
+Alexandr Predke: 0.107652, 8.5445764, 5.5445764, 0.1653765, 0.0629623
+Yu Yangyi: 0.0240148, 5.3480202, 5.3480202, 0.2131764, 0.0146035
+Amin Tabatabaei: 0.0700988, 7.8850357, 4.8850357, 0.1049999, 0.0583301
+Andrey Esipenko: 0.004746, 8.0078246, 4.0078246, 0.00372, 0.0292951
+Sam Shankland: 0.0171527, 7.972773, 3.972773, 0.0197524, 0.0021035
+Leinier Domínguez: 0.0657352, 9.8035186, 2.8035186, 0.0136829, 0.0771617
+Maxime Vachier-Lagrave: 0.0159375, 9.492628, 2.492628, 0.0134862, 0.000881
+Hikaru Nakamura: 0.3892734, 15.4328373, 2.4328373, 1.0040816, 0.0166808
+Shakhriyar Mamedyarov: 0.0028955, 4.2666653, 1.2666653, 0.0045655, 0.0236598
+Anish Giri: 0.021389, 8.250327, 1.250327, 0.0210273, 0.0012965
+Wesley So: 0.0037206, 5.0974575, 1.0974575, 0.0042605, 0.0002411
+Levon Aronian: 0.0252903, 11.0838836, 1.0838836, 0.000807, 1.0040046
+Richárd Rapport: 0.9991479, 20.0, 0.0, 1.0, 0.0
+Dmitry Andreikin: 0.0, 10.0, 0.0, 0.0, 1.0
+Vidit Gujrathi: 0.0, 7.0, 0.0, 0.0, 0.0
+Radosław Wojtaszek: 0.0, 4.0, 0.0, 0.0, 0.0
+Vladimir Fedoseev: 0.0, 3.0, 0.0, 0.0, 0.0
+Alexander Grischuk: 0.0, 2.0, 0.0, 0.0, 0.0
+Pentala Harikrishna: 0.0, 2.0, 0.0, 0.0, 0.0
+Étienne Bacrot: 0.0, 2.0, 0.0, 0.0, 0.0
+Alexei Shirov: 0.0, 1.0, 0.0, 0.0, 0.0
+Ding Liren: 0.0, 0.0, 0.0, 0.0, 0.0
+####
+
+Order by Average Firsts in Round 3
+Hikaru Nakamura: 0.3892734, 15.4328373, 2.4328373, 1.0040816, 0.0166808
+Richárd Rapport: 0.9991479, 20.0, 0.0, 1.0, 0.0
+Yu Yangyi: 0.0240148, 5.3480202, 5.3480202, 0.2131764, 0.0146035
+Daniil Dubov: 0.1277, 8.8195538, 5.8195538, 0.1983208, 0.0619536
+Nikita Vitiugov: 0.1206781, 8.7852381, 5.7852381, 0.1857358, 0.0648246
+Alexandr Predke: 0.107652, 8.5445764, 5.5445764, 0.1653765, 0.0629623
+Amin Tabatabaei: 0.0700988, 7.8850357, 4.8850357, 0.1049999, 0.0583301
+Vincent Keymer: 0.0038216, 7.3697382, 7.3697382, 0.0393176, 0.508513
+Anish Giri: 0.021389, 8.250327, 1.250327, 0.0210273, 0.0012965
+Sam Shankland: 0.0171527, 7.972773, 3.972773, 0.0197524, 0.0021035
+Leinier Domínguez: 0.0657352, 9.8035186, 2.8035186, 0.0136829, 0.0771617
+Maxime Vachier-Lagrave: 0.0159375, 9.492628, 2.492628, 0.0134862, 0.000881
+Grigoriy Oparin: 0.0007466, 5.9701983, 5.9701983, 0.0076896, 0.0734888
+Shakhriyar Mamedyarov: 0.0028955, 4.2666653, 1.2666653, 0.0045655, 0.0236598
+Wesley So: 0.0037206, 5.0974575, 1.0974575, 0.0042605, 0.0002411
+Andrey Esipenko: 0.004746, 8.0078246, 4.0078246, 0.00372, 0.0292951
+Levon Aronian: 0.0252903, 11.0838836, 1.0838836, 0.000807, 1.0040046
+Dmitry Andreikin: 0.0, 10.0, 0.0, 0.0, 1.0
+Vidit Gujrathi: 0.0, 7.0, 0.0, 0.0, 0.0
+Radosław Wojtaszek: 0.0, 4.0, 0.0, 0.0, 0.0
+Vladimir Fedoseev: 0.0, 3.0, 0.0, 0.0, 0.0
+Alexander Grischuk: 0.0, 2.0, 0.0, 0.0, 0.0
+Pentala Harikrishna: 0.0, 2.0, 0.0, 0.0, 0.0
+Étienne Bacrot: 0.0, 2.0, 0.0, 0.0, 0.0
+Alexei Shirov: 0.0, 1.0, 0.0, 0.0, 0.0
+Ding Liren: 0.0, 0.0, 0.0, 0.0, 0.0
+####
+
+Order by Average Seconds in Round 3
+Levon Aronian: 0.0252903, 11.0838836, 1.0838836, 0.000807, 1.0040046
+Dmitry Andreikin: 0.0, 10.0, 0.0, 0.0, 1.0
+Vincent Keymer: 0.0038216, 7.3697382, 7.3697382, 0.0393176, 0.508513
+Leinier Domínguez: 0.0657352, 9.8035186, 2.8035186, 0.0136829, 0.0771617
+Grigoriy Oparin: 0.0007466, 5.9701983, 5.9701983, 0.0076896, 0.0734888
+Nikita Vitiugov: 0.1206781, 8.7852381, 5.7852381, 0.1857358, 0.0648246
+Alexandr Predke: 0.107652, 8.5445764, 5.5445764, 0.1653765, 0.0629623
+Daniil Dubov: 0.1277, 8.8195538, 5.8195538, 0.1983208, 0.0619536
+Amin Tabatabaei: 0.0700988, 7.8850357, 4.8850357, 0.1049999, 0.0583301
+Andrey Esipenko: 0.004746, 8.0078246, 4.0078246, 0.00372, 0.0292951
+Shakhriyar Mamedyarov: 0.0028955, 4.2666653, 1.2666653, 0.0045655, 0.0236598
+Hikaru Nakamura: 0.3892734, 15.4328373, 2.4328373, 1.0040816, 0.0166808
+Yu Yangyi: 0.0240148, 5.3480202, 5.3480202, 0.2131764, 0.0146035
+Sam Shankland: 0.0171527, 7.972773, 3.972773, 0.0197524, 0.0021035
+Anish Giri: 0.021389, 8.250327, 1.250327, 0.0210273, 0.0012965
+Maxime Vachier-Lagrave: 0.0159375, 9.492628, 2.492628, 0.0134862, 0.000881
+Wesley So: 0.0037206, 5.0974575, 1.0974575, 0.0042605, 0.0002411
+Richárd Rapport: 0.9991479, 20.0, 0.0, 1.0, 0.0
+Vidit Gujrathi: 0.0, 7.0, 0.0, 0.0, 0.0
+Radosław Wojtaszek: 0.0, 4.0, 0.0, 0.0, 0.0
+Vladimir Fedoseev: 0.0, 3.0, 0.0, 0.0, 0.0
+Alexander Grischuk: 0.0, 2.0, 0.0, 0.0, 0.0
+Pentala Harikrishna: 0.0, 2.0, 0.0, 0.0, 0.0
+Étienne Bacrot: 0.0, 2.0, 0.0, 0.0, 0.0
+Alexei Shirov: 0.0, 1.0, 0.0, 0.0, 0.0
+Ding Liren: 0.0, 0.0, 0.0, 0.0, 0.0
+####
+
+
+Process finished with exit code 0
+
+'''
+
+'''
 Result for 10000000 Simulations:
 (Figure besides Qualification Numbers could be inaccurate)
 Name, Country, Rating , # of Candidate Qualifications
